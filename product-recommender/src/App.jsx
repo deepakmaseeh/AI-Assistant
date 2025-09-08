@@ -10,7 +10,7 @@ export default function App() {
 
   const askAI = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/recommend", {
+      const res = await axios.post("https://product-recommender-backend.onrender.com/api/recommend", {
         message: input,
       });
       setReply(res.data.reply);
