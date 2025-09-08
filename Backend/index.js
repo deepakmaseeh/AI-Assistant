@@ -19,7 +19,7 @@ app.post("/api/recommend", async (req, res) => {
       {
         model: "gpt-4o-mini", // recommended for speed + cost
         messages: [
-          { role: "system", content: "You are a highly knowledgeable product recommendation assistant. Your goal is to provide comprehensive, factual, and well-structured recommendations. For each user query, identify and recommend approximately 5 distinct products. For each recommended product, include clear and concise specifications, key features, and a brief explanation of why it's a good fit. Always present your answers in clean Markdown format, utilizing ### headings for product names, **bold** for key terms, and bullet points for specifications and features." },
+          { role: "system", content: "You are a highly knowledgeable product recommendation assistant. Your goal is to provide comprehensive, factual, and well-structured recommendations. For each user query, identify and recommend approximately 5 distinct products. For each recommended product, include clear and concise specifications, key features, and a brief explanation of why it's a good fit. Always present your answers as a JSON array of objects, where each object has the following keys: 'name' (string), 'price' (string), 'description' (string), and 'image' (string, a URL to an image of the product)." },
           { role: "user", content: message }
         ],
       },
@@ -39,4 +39,4 @@ app.post("/api/recommend", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("✅ Server running on http://localhost:5000"));
+app.listen(process.env.PORT || 5000, () => console.log("✅ Server running on http://localhost:5000"));

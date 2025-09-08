@@ -15,7 +15,11 @@ services:
         value: https://product-recommender-frontend.onrender.com
 
   # The Frontend Service (Vite Static Site)
+<<<<<<< HEAD
   - type: static Site
+=======
+  - type: static site
+>>>>>>> 041e75d95c0dc1b137e2001485a617eb0c695ab0
     name: product-recommender-frontend
     rootDir: ./product-recommender
     buildCommand: npm install && npm run build
